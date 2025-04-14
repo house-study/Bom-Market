@@ -1,6 +1,6 @@
-import Layout from '@/components/layout/index';
-
 import type { AppProps } from 'next/app';
+
+import Layout from '@/components/layout/index';
 
 import '@/styles/globals.css';
 
