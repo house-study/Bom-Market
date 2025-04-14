@@ -11,7 +11,7 @@ export default function ProductList() {
     },
     {
       id: 2,
-      imageURL: '/sample.jpeg',
+      imageURL: '/sample2.png',
       productName: '바나나',
       description: '부드럽고 달달한 바나나',
       price: 2500,
@@ -32,7 +32,7 @@ export default function ProductList() {
     },
     {
       id: 5,
-      imageURL: '/sample.jpeg',
+      imageURL: '/sample2.png',
       productName: '포도',
       description: '씨 없는 달콤한 청포도',
       price: 5500,
@@ -53,14 +53,14 @@ export default function ProductList() {
     },
     {
       id: 8,
-      imageURL: '/sample.jpeg',
+      imageURL: '/sample2.png',
       productName: '오렌지',
       description: '비타민 C가 풍부한 오렌지',
       price: 3900,
     },
     {
       id: 9,
-      imageURL: '/sample.jpeg',
+      imageURL: '/sample2.png',
       productName: '망고',
       description: '달콤한 필리핀산 망고',
       price: 6700,
@@ -74,7 +74,7 @@ export default function ProductList() {
     },
     {
       id: 11,
-      imageURL: '/sample.jpeg',
+      imageURL: '/sample2.png',
       productName: '키위',
       description: '새콤달콤한 뉴질랜드 키위',
       price: 3500,
