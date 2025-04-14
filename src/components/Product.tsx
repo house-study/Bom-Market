@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 type Product = {
   id: number;
@@ -9,14 +10,15 @@ type Product = {
 };
 
 export default function Product({
+  id,
   imageURL,
   productName,
   description,
   price,
 }: Product) {
   return (
-    <>
-      <section className="box-content flex w-[200px] flex-col gap-2 p-3">
+    <section className="box-content flex w-[200px] flex-col gap-2 p-3">
+      <Link href={`/product/${id}`}>
         <div className="relative h-[200px]">
           <Image
             src={imageURL}
@@ -30,7 +32,7 @@ export default function Product({
           <p className="line-clamp-1 text-sm">{description}</p>
           <p className="line-clamp-1 font-medium">{price.toLocaleString()}원</p>
         </div>
-      </section>
-    </>
+      </Link>
+    </section>
   );
 }
