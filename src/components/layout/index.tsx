@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Header />
-      <main className="pt-20">{children}</main>
+      <main className="m-auto max-w-[1200px] pt-20">{children}</main>
     </>
   );
 }
