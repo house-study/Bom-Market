@@ -16,8 +16,8 @@ export default function Product({
 }: Product) {
   return (
     <>
-      <section className="flex flex-col gap-2 p-3">
-        <div className="relative h-[250px] w-[200px]">
+      <section className="box-content flex w-[200px] flex-col gap-2 p-3">
+        <div className="relative h-[250px]">
           <Image
             src={imageURL}
             alt={productName}
@@ -26,9 +26,9 @@ export default function Product({
           />
         </div>
         <div>
-          <h3 className="font-medium">{productName}</h3>
-          <p className="text-sm">{description}</p>
-          <p className="font-medium">{price.toLocaleString()}원</p>
+          <h3 className="line-clamp-1 font-medium">{productName}</h3>
+          <p className="line-clamp-1 text-sm">{description}</p>
+          <p className="line-clamp-1 font-medium">{price.toLocaleString()}원</p>
         </div>
       </section>
     </>

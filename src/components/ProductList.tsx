@@ -5,9 +5,10 @@ export default function ProductList() {
     {
       id: 1,
       imageURL: '/sample.jpeg',
-      productName: '사과',
-      description: '신선하고 달콤한 아오리 사과',
-      price: 3000,
+      productName: '진짜 진짜 진짜 진짜 진짜 진짜 진짜 진짜 사과',
+      description:
+        '진짜 진짜 진짜 진짜 진짜 진짜 진짜 진짜 진짜 신선하고 달콤한 아오리 사과',
+      price: 30000000000000000000,
     },
     {
       id: 2,
