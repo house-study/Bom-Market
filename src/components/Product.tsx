@@ -1,19 +1,19 @@
 import Image from 'next/image';
 
-type Product = {
+interface ProductType {
   id: number;
   imageURL: string;
   productName: string;
   description: string;
   price: number;
-};
+}
 
 export default function Product({
   imageURL,
   productName,
   description,
   price,
-}: Product) {
+}: ProductType) {
   return (
     <>
       <section className="box-content flex w-[200px] flex-col gap-2 p-3">
