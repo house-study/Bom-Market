@@ -1,23 +1,23 @@
 import Image from 'next/image';
 
-interface ProductType {
+type Product = {
   id: number;
   imageURL: string;
   productName: string;
   description: string;
   price: number;
-}
+};
 
 export default function Product({
   imageURL,
   productName,
   description,
   price,
-}: ProductType) {
+}: Product) {
   return (
     <>
       <section className="box-content flex w-[200px] flex-col gap-2 p-3">
-        <div className="relative h-[250px]">
+        <div className="relative h-[200px]">
           <Image
             src={imageURL}
             alt={productName}
