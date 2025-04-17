@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 
 import Product from '@/components/Product';
 
+const URL = 'http://localhost:3001';
+
 interface ProductType {
   id: number;
   imageURL: string;
@@ -12,8 +14,6 @@ interface ProductType {
 }
 
 export default function ProductList() {
-  const URL = 'http://localhost:3001';
-
   const [products, setProducts] = useState<ProductType[]>([]);
 
   useEffect(() => {

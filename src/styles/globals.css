@@ -1,1 +1,7 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@theme {
+  --color-point: rgb(239, 98, 83);
+  --color-gray-1: #ebebeb;
+  --color-gray-2: rgba(34, 34, 34, 0.5);
+}
