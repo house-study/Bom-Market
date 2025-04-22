@@ -1,10 +1,6 @@
 import ProductList from '@/components/ProductList';
 const Home = () => {
-  return (
-    <>
-      <ProductList />
-    </>
-  );
+  return <ProductList />;
 };
 
 export default Home;

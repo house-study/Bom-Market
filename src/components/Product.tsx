@@ -1,13 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
-type Product = {
-  id: number;
-  imageURL: string;
-  productName: string;
-  description: string;
-  price: number;
-};
+import { ProductType } from '@/types/product';
 
 export default function Product({
   id,
@@ -15,9 +8,9 @@ export default function Product({
   productName,
   description,
   price,
-}: Product) {
+}: ProductType) {
   return (
-    <section className="box-content flex w-[200px] flex-col gap-2 p-3">
+    <section className="flex w-[200px] flex-col gap-2 p-3">
       <Link href={`/product/${id}`}>
         <div className="relative h-[200px]">
           <Image

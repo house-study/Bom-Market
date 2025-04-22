@@ -1,26 +1,15 @@
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 import Product from '@/components/Product';
 
-const URL = 'http://localhost:3001';
-
-interface ProductType {
-  id: number;
-  imageURL: string;
-  productName: string;
-  description: string;
-  price: number;
-}
+import { ProductType } from '@/types/product';
+import { getProducts } from '@/api/apiRequest';
 
 export default function ProductList() {
   const [products, setProducts] = useState<ProductType[]>([]);
 
   useEffect(() => {
-    axios
-      .get(`${URL}/products`)
-      .then(res => setProducts(res.data))
-      .catch(console.error);
+    getProducts().then(setProducts).catch(console.error);
   }, []);
 
   return (
