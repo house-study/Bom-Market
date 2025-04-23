@@ -1,9 +1,7 @@
-import axios from 'axios';
+import { GetServerSideProps } from 'next';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
 
-const URL = 'http://localhost:3001';
+const URL = process.env.API_URL_SERVER;
 
 interface ProductType {
   id: number;
@@ -13,23 +11,11 @@ interface ProductType {
   price: number;
 }
 
-export default function ProductDetailPage() {
-  const router = useRouter();
-  const { id } = router.query;
-
-  const [product, setProduct] = useState<ProductType | null>(null);
-
-  useEffect(() => {
-    if (!id) return;
-
-    axios
-      .get(`${URL}/products/${id}`)
-      .then(res => setProduct(res.data))
-      .catch(console.error);
-  }, [id]);
-
-  if (!product) return <p>로딩 중...</p>;
-
+export default function ProductDetailPage({
+  product,
+}: {
+  product: ProductType;
+}) {
   return (
     <div className="mx-auto flex w-[80%] flex-col gap-5 pt-10 md:flex md:w-[90%] md:flex-row md:gap-15">
       <div className="relative aspect-square grow-1">
@@ -51,11 +37,23 @@ export default function ProductDetailPage() {
           <button className="bg-point border-point w-full cursor-pointer rounded-xl border py-4 text-lg font-bold text-white">
             구매하기
           </button>
-          <button className="border-gray-1 w-full cursor-pointer rounded-xl border bg-white py-4">
-            관심상품
-          </button>
         </div>
       </div>
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const id = params?.id;
+
+  const res = await fetch(`${URL}/products/${id}`);
+  if (!res.ok) {
+    return { notFound: true };
+  }
+
+  const product: ProductType = await res.json();
+
+  return {
+    props: { product },
+  };
+};
