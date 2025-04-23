@@ -31,7 +31,7 @@ export default function ProductDetailPage() {
   if (!product) return <p>로딩 중...</p>;
 
   return (
-    <div className="flex gap-10 pt-10">
+    <div className="mx-auto flex w-[80%] flex-col gap-5 pt-10 md:flex md:w-[90%] md:flex-row md:gap-15">
       <div className="relative aspect-square grow-1">
         <Image
           src={product.imageURL}
@@ -40,14 +40,14 @@ export default function ProductDetailPage() {
           className="object-cover"
         />
       </div>
-      <div className="flex grow-1 flex-col py-7">
+      <div className="flex grow-1 flex-col py-2 md:py-7">
         <span className="text-xs">구매가</span>
         <strong className="text-lg font-bold">
           {product.price.toLocaleString()}원
         </strong>
         <h1 className="pt-2 pb-1">{product.productName}</h1>
         <p className="text-gray-2 text-xs">{product.description}</p>
-        <div className="flex flex-col gap-3 pt-20">
+        <div className="flex flex-col gap-3 pt-10 md:pt-20">
           <button className="bg-point border-point w-full cursor-pointer rounded-xl border py-4 text-lg font-bold text-white">
             구매하기
           </button>
