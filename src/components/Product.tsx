@@ -11,7 +11,7 @@ export default function Product({
   price,
 }: ProductType) {
   return (
-    <section className="flex w-[90%] flex-col gap-2 p-3">
+    <div className="flex w-[90%] flex-col gap-2 p-3">
       <Link href={`/product/${id}`}>
         <div className="relative aspect-square w-full">
           <Image
@@ -27,6 +27,6 @@ export default function Product({
           <p className="line-clamp-1 font-medium">{price.toLocaleString()}원</p>
         </div>
       </Link>
-    </section>
+    </div>
   );
 }
