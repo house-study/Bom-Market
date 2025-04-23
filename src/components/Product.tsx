@@ -10,9 +10,9 @@ export default function Product({
   price,
 }: ProductType) {
   return (
-    <section className="flex w-[200px] flex-col gap-2 p-3">
+    <section className="flex w-[90%] flex-col gap-2 p-3">
       <Link href={`/product/${id}`}>
-        <div className="relative h-[200px]">
+        <div className="relative aspect-square w-full">
           <Image
             src={imageURL}
             alt={productName}
