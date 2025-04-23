@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 
-import Product from '@/components/Product';
-
-import { ProductType } from '@/types/product';
 import { getProducts } from '@/api/apiRequest';
+import Product from '@/components/Product';
+import { ProductType } from '@/types/product';
 
 export default function ProductList() {
   const [products, setProducts] = useState<ProductType[]>([]);
