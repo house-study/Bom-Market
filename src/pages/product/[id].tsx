@@ -17,7 +17,7 @@ export default function ProductDetailPage({
   product: ProductType;
 }) {
   return (
-    <div className="mx-auto flex w-[80%] flex-col gap-5 pt-10 md:flex md:w-[90%] md:flex-row md:gap-15">
+    <div className="mx-auto flex w-4/5 flex-col gap-5 pt-10 md:flex md:w-9/10 md:flex-row md:gap-15">
       <div className="relative aspect-square grow-1">
         <Image
           src={product.imageURL}
