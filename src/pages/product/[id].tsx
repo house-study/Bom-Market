@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
-const URL = process.env.API_URL_SERVER;
+import { getProductDetail } from '@/api/apiRequest';
 
 interface ProductType {
   id: number;
@@ -46,14 +46,17 @@ export default function ProductDetailPage({
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const id = params?.id;
 
-  const res = await fetch(`${URL}/products/${id}`);
-  if (!res.ok) {
+  if (!id) {
     return { notFound: true };
   }
 
-  const product: ProductType = await res.json();
-
-  return {
-    props: { product },
-  };
+  try {
+    const product = await getProductDetail(Number(id));
+    return {
+      props: { product },
+    };
+  } catch (error) {
+    console.error(error);
+    return { notFound: true };
+  }
 };
