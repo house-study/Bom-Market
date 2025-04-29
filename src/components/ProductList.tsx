@@ -7,21 +7,22 @@ import { ProductType } from '@/types/product';
 
 export default function ProductList() {
   const [products, setProducts] = useState<ProductType[]>([]);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<boolean>(false);
+  const errorMessage = '상품을 불러오는 데 실패했습니다. 😭';
 
   useEffect(() => {
     getProducts()
       .then(setProducts)
       .catch(err => {
         console.error(err);
-        setError('상품을 불러오는 데 실패했습니다. 😭');
+        setError(true);
       });
   }, []);
 
   if (error) {
     return (
       <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col gap-5 text-center">
-        <p className="text-gray-2">{error}</p>
+        <p className="text-gray-2">{errorMessage} 😭</p>
         <Link
           href="/"
           className="bg-point rounded-xl border py-3 text-lg font-semibold text-white"
