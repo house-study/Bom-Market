@@ -5,10 +5,11 @@ import { getProducts } from '@/api/apiRequest';
 import Product from '@/components/Product';
 import { ProductType } from '@/types/product';
 
+const ERROR_MESSAGE = '상품을 불러오는 데 실패했습니다. 😭';
+
 export default function ProductList() {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [error, setError] = useState<boolean>(false);
-  const errorMessage = '상품을 불러오는 데 실패했습니다. 😭';
 
   useEffect(() => {
     getProducts()
@@ -22,7 +23,7 @@ export default function ProductList() {
   if (error) {
     return (
       <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col gap-5 text-center">
-        <p className="text-gray-2">{errorMessage} 😭</p>
+        <p className="text-gray-2">{ERROR_MESSAGE}</p>
         <Link
           href="/"
           className="bg-point rounded-xl border py-3 text-lg font-semibold text-white"
