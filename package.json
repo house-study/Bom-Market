@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "server": "json-server db.json --port 3001",
     "build": "next build",
     "start": "next start",
     "lint": "tsc --noEmit && next lint",
     "lint:fix": "tsc --noEmit && next lint --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "start:dev": "pnpm run server & pnpm run dev"
   },
   "prettier": {
     "plugins": [
@@ -24,6 +26,8 @@
     "endOfLine": "auto"
   },
   "dependencies": {
+    "axios": "^1.8.4",
+    "json-server": "1.0.0-beta.3",
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

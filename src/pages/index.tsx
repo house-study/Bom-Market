@@ -1,5 +1,6 @@
+import ProductList from '@/components/ProductList';
 const Home = () => {
-  return <div></div>;
+  return <ProductList />;
 };
 
 export default Home;
