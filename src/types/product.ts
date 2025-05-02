@@ -4,4 +4,6 @@ export interface ProductType {
   productName: string;
   description: string;
   price: number;
+  origin: string;
+  count: number;
 }
