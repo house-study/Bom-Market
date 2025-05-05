@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { ProductType } from '@/types/product';
+import { ProductType } from '@/types/product.d';
 
 export default function Product({
   id,

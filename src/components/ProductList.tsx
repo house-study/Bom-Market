@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 import { getProducts } from '@/api/apiRequest';
 import Product from '@/components/Product';
-import { ProductType } from '@/types/product';
+import { ProductType } from '@/types/product.d';
 
 const ERROR_MESSAGE = '상품을 불러오는 데 실패했습니다. 😭';
 

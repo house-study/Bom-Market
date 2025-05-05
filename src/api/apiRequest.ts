@@ -1,5 +1,5 @@
 import axiosInstance from '@/api/axiosInstance';
-import { ProductType } from '@/types/product';
+import { ProductType } from '@/types/product.d';
 
 export const getProducts = async () => {
   const res = await axiosInstance.get<ProductType[]>('/products');

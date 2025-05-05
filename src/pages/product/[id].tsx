@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 import { getProductDetail } from '@/api/apiRequest';
-import { ProductType } from '@/types/product';
+import { ProductType } from '@/types/product.d';
 
 export default function ProductDetailPage({
   product,
