@@ -1,22 +1,33 @@
-// components/CartItemCard.tsx
-
 import Image from 'next/image';
+import { IoCloseOutline } from 'react-icons/io5';
 
+import { removeCartItem } from '@/api/apiRequest';
 import CountButton from '@/components/CountButton';
 import { useCount } from '@/hooks/useCount';
 import { CartItemType } from '@/types/cartItem';
 import { ProductType } from '@/types/product';
 
-interface Props {
+interface Types {
   item: CartItemType;
   product: ProductType;
+  onDelete: (id: number) => void;
 }
 
-export default function CartItemCard({ item, product }: Props) {
+export default function CartItemCard({ item, product, onDelete }: Types) {
   const { count, handleCount } = useCount(product.count, item.quantity);
+  const handleDeleteItem = async (id: number) => {
+    await removeCartItem(id);
+    onDelete(id);
+  };
 
   return (
-    <div className="flex w-full gap-4 p-3">
+    <div className="relative flex w-full gap-4 p-3">
+      <button
+        onClick={() => handleDeleteItem(item.id)}
+        className="hover:text-point absolute top-5 right-5 cursor-pointer text-xl hover:text-2xl"
+      >
+        <IoCloseOutline />
+      </button>
       <input
         type="checkbox"
         className="accent-point rounded-full1 h-5 w-5 self-center"
