@@ -8,6 +8,7 @@ import { ProductType } from '@/types/product';
 export default function CartPage() {
   const [cartItems, setCartItems] = useState<CartItemType[]>([]);
   const [products, setProducts] = useState<ProductType[]>([]);
+  let totalPrice = 0;
 
   useEffect(() => {
     getCartItems()
@@ -35,12 +36,17 @@ export default function CartPage() {
         const product = getProductById(item.productId);
 
         if (!product) return null;
+
+        totalPrice += item.quantity * product.price;
         return <CartItem key={item.id} item={item} product={product} />;
       })}
       <div className="bg-gray-1/50 mt-8 px-5 py-8">
         <p className="text-center">
-          총 주문금액<b> 53,900원</b> + 배송비 <b>0원</b> =
-          <b className="text-point text-lg"> 총 결제 금액 53,900원</b>
+          총 주문금액<b> {totalPrice.toLocaleString()}원</b> + 배송비 <b>0원</b>{' '}
+          ={' '}
+          <b className="text-point text-lg">
+            총 결제 금액 {totalPrice.toLocaleString()}원
+          </b>
         </p>
       </div>
       <div className="flex justify-center">
