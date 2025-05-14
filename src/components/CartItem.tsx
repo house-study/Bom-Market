@@ -17,6 +17,10 @@ export default function CartItemCard({ item, product }: Props) {
 
   return (
     <div className="flex w-full gap-4 p-3">
+      <input
+        type="checkbox"
+        className="accent-point rounded-full1 h-5 w-5 self-center"
+      />
       <div className="relative aspect-square w-1/5">
         <Image
           src={product.imageURL}

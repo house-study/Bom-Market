@@ -37,6 +37,17 @@ export default function CartPage() {
         if (!product) return null;
         return <CartItem key={item.id} item={item} product={product} />;
       })}
+      <div className="bg-gray-1/50 mt-8 px-5 py-8">
+        <p className="text-center">
+          총 주문금액<b> 53,900원</b> + 배송비 <b>0원</b> =
+          <b className="text-point text-lg"> 총 결제 금액 53,900원</b>
+        </p>
+      </div>
+      <div className="flex justify-center">
+        <button className="bg-point border-point my-8 w-1/2 cursor-pointer rounded-xl border py-4 text-lg font-bold text-white">
+          구매하기
+        </button>
+      </div>
     </div>
   );
 }
