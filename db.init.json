@@ -181,5 +181,16 @@
       "count": 15
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": 1,
+      "productId": 19,
+      "quantity": 2
+    },
+    {
+      "id": 2,
+      "productId": 20,
+      "quantity": 1
+    }
+  ]
 }

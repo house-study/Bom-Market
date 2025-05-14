@@ -1,26 +1,17 @@
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
-import { useState } from 'react';
 
 import { getProductDetail } from '@/api/apiRequest';
-import { ProductType } from '@/types/product';
+import CountButton from '@/components/CountButton';
+import { useCount } from '@/hooks/useCount';
+import type { ProductType } from '@/types/product.d';
 
 export default function ProductDetailPage({
   product,
 }: {
   product: ProductType;
 }) {
-  const [count, setCount] = useState(1);
-  const handleCount = (type: 'plus' | 'minus') => {
-    if (type === 'plus') {
-      if (count > product?.count) {
-        alert('구매 가능한 최대 수량입니다. 🥲');
-        return;
-      }
-      setCount(prev => prev + 1);
-    }
-    if (type === 'minus') setCount(prev => Math.max(prev - 1, 1));
-  };
+  const { count, handleCount } = useCount(product.count);
 
   return (
     <div className="mx-auto flex w-4/5 flex-col gap-5 pt-10 md:flex md:w-9/10 md:flex-row md:gap-15">
@@ -45,27 +36,9 @@ export default function ProductDetailPage({
             수량
           </p>
           <div className="flex items-center justify-between py-4">
-            <div className="border-gray-1 text-gray-2 flex items-center gap-4 border bg-white">
-              <button
-                onClick={() => {
-                  handleCount('minus');
-                }}
-                className="border-gray-1 cursor-pointer border-x px-2 py-1"
-              >
-                -
-              </button>
-              <span className="text-xs font-bold">{count}</span>
-              <button
-                onClick={() => {
-                  handleCount('plus');
-                }}
-                className="border-gray-1 cursor-pointer border-x px-2 py-1"
-              >
-                +
-              </button>
-            </div>
+            <CountButton count={count} onClick={handleCount} />
             <strong className="font-bold">
-              {product.price.toLocaleString()}원
+              {(product.price * count).toLocaleString()}원
             </strong>
           </div>
         </div>
