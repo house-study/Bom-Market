@@ -3,13 +3,16 @@ import Image from 'next/image';
 
 import { getProductDetail } from '@/api/apiRequest';
 import CountButton from '@/components/CountButton';
-import { ProductType } from '@/types/product.d';
+import { useCount } from '@/hooks/useCount';
+import type { ProductType } from '@/types/product.d';
 
 export default function ProductDetailPage({
   product,
 }: {
   product: ProductType;
 }) {
+  const { count, handleCount } = useCount(product.count);
+
   return (
     <div className="mx-auto flex w-4/5 flex-col gap-5 pt-10 md:flex md:w-9/10 md:flex-row md:gap-15">
       <div className="relative aspect-square grow-1">
@@ -33,9 +36,9 @@ export default function ProductDetailPage({
             수량
           </p>
           <div className="flex items-center justify-between py-4">
-            <CountButton maxQuantity={product.count} />
+            <CountButton count={count} onClick={handleCount} />
             <strong className="font-bold">
-              {product.price.toLocaleString()}원
+              {(product.price * count).toLocaleString()}원
             </strong>
           </div>
         </div>

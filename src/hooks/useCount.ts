@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-export function useCount(max: number) {
-  const [count, setCount] = useState(1);
+export function useCount(max: number, quantity?: number) {
+  const [count, setCount] = useState<number>(quantity || 1);
 
   const handleCount = (type: 'plus' | 'minus') => {
     if (type === 'plus') {
@@ -15,5 +15,5 @@ export function useCount(max: number) {
     }
   };
 
-  return { count, setCount, handleCount };
+  return { count, handleCount };
 }
